@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Learning JavaScript</title>
+    <link rel="stylesheet" href="firstjs.css"/>
+  </head>
+   
+  <body id="body">
+    <div class="header">
+    <h1 id="heading"> Learning JavaScript </h1>
+    <p> Cheer Up! </p>
+    </div>
+    <form method="post" action="some.php" name="myForm" onsubmit="return validateForm()">
+        <label>first name</label>
+        <input type="text" name="firstName" id="firstName"/>
+      <label>Background</label>
+      <select name = "background" id="background" onchange="changeBackground(this)">
+          <option value="red">red</option>
+          <option value="blue">blue</option>
+          <option value="pink">pink</option>
+        </select>
+        <input type="submit" value="Submit"/>
+      </form>
+    
+    <div class="container">
+    <button onclick="doClick()">click here to show event action</button>
+    <button onclick="this.innerHTML ='unsafer text change'">click here to show event action</button> 
+    <button onclick="changeText(this)">click here to show event action</button>
+    <button onclick="changeHead()">click here to show event action</button>
+    <h1 id="time"></h1>
+    <button onmouseover="showDate()" onmouseout="clearDate()">hover to show date</button>
+    </div>
+    
+    <script>
+        function validateForm(){
+            var firstName = document.forms["myForm"]["firstName"].value;
+            
+            if(firstName == null || firstName =="") {
+                alert("fill first name");
+                return false;
+            }
+            if(firstName.length < 3) {
+                alert("first name shuld be atleast 3 char");
+                return false;
+            }
+        }
+        function changeBackground(x){
+            console.log(x.value);
+            var heading = document.getElementById('body');
+            body.style.backgroundColor = x.value;
+        }
+        function doClick(){
+            alert('YOU CLICKED');
+        }
+        function changeText(id){
+            id.innerHTML = 'safer text change';
+        }
+        function changeHead(){
+            var heading = document.getElementById('heading');
+            heading.innerHTML = 'heading changed';
+        }
+        function showDate(){
+            var time = document.getElementById('time');
+            time.innerHTML = Date();
+        }
+        function clearDate(){
+            var time = document.getElementById('time');
+            time.innerHTML = '';
+        }
+        
+/* //variables with number datatype
+    var number1 = 35;
+    var number2 = 5;
+    alert('the sum is'+(number1+number2));
+*/
+        
+/* //variables with string datatype
+    var number1 = '35';
+    var number2 = '5';
+    alert('the sum is'+(number1+number2)); //concat 2 strings
+*/      
+   
+   //array with strings
+  /*    var colors1=[];
+      alert(colors1);
+      var colors2=['blue','red','blue','green','green','a'];
+      alert(colors2[3]);
+      alert(colors2.reverse());
+      alert(colors2.sort());
+      var colors3=['red','blue','green'];
+      colors3[3]=pink;
+      colors3.push('purple');
+      alert(colors3);
+      
+       //array with numbers
+       var number1 = [999,88,21,1000,0,999,21];
+       alert('the sum is'+(number1[0]+number1[2]));
+       alert(number1.reverse()); 
+       alert(number1.sort()); //doesnt sort properly
+        var number1 = [2,0,5,2,1,1];
+       alert('the sum is'+(number1[0]+number1[2]));
+       alert(number1.reverse()); 
+       alert(number1.sort()); //sorts properly
+         var number1 = [22,0,55,22,11,11];
+       alert('the sum is'+(number1[0]+number1[2]));
+       alert(number1.reverse()); 
+       alert(number1.sort()); //sorts properly
+        
+
+      //array with numbers & strings
+       var number1 = ['r',2,'b',0,5,1,'g',1,'r',''];
+       alert('the num is'+(number1[0]+number1[4]));
+       alert(number1.length);
+        alert(number1.reverse()); //reverse in order created
+        alert(number1.sort());
+*/
+
+/*
+        //for loop
+     for(var i=0;i<10;i++){
+     console.log(i);
+     }
+        var numbers=[33,54,76,34,2,6];
+        numbers.reverse();
+        for(var i=0;i<numbers.length;i++) {
+        console.log(numbers[i]);
+        }
+                       
+         //for each loop
+        var numbers=[33,54,76,34,2,6];
+        numbers.forEach(function(num) {
+        console.log(num);
+        });
+        
+        //while loop
+       var i=0;
+       while(i<10) {
+        console.log(i);
+        i++;
+        }
+*/
+        
+/*
+        //object literal
+        var person = {
+            firstName: 'Lakshmi',
+            lastName:'Priya',
+            age:21,
+            subject:['maths','cs'],
+            address:{
+                street:'karaneeswarar',
+                city:'chennai'
+            },
+            fullName: function(){
+                return this.firstName+""+this.lastName;
+            }
+        }
+        console.log(person.lastName);
+        console.log(person.subject[0]);
+        console.log(person.address.street);
+        console.log(person.fullName());
+        
+        //constructor pattern
+        function Fruit(name,color,shape)
+        {
+        this.name = name;
+        this.color = color;
+        this.shape = shape;
+        this.describe = function(){
+            return 'A ' +this.name+' is the color '+this.color+' and is the shape '+this.shape;
+        }
+}
+     var melon = new Fruit('melon','green','round');
+    console.log(melon.describe());
+
+       //array of objects
+        var users = [
+            {
+                name:'aaa',age:10
+            },
+            {
+                name:'bbb',age:20
+            },
+            {
+                name:'ccc',age:30
+            }
+        ];
+        console.log(users[0].name);
+*/
+        
+        
+        
+    </script>
+    
+  </body>
+</html>
